@@ -1,14 +1,17 @@
 type GreetProps = {
   name: string;
   count?: number;
+  isLoggedIn: boolean;
 };
 
-export const Greet = (props: GreetProps) => {
-  console.log(`Hey ${props.name}`);
+export const Greet = ({ name, count, isLoggedIn }: GreetProps) => {
+  console.log(`Hey ${name}`);
   return (
     <div>
       <h2>
-        Hello {props.name}, you have {props.count} new message
+        {isLoggedIn
+          ? `Hello ${name}, you have ${count} new messages`
+          : `Welcome guests now`}
       </h2>
     </div>
   );
